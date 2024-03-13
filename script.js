@@ -1,15 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Set the default values of the editForm inputs
+    document.getElementById("editBagSizeCbYd").value = bagSizeCbYd;
+    document.getElementById("editBagPriceUSD").value = bagPriceUSD;
     document.getElementById("calculate").addEventListener("click", function() {
-        console
         var lengthFt = document.getElementById("length").value;
         var widthFt = document.getElementById("width").value;
         var depthIn = document.getElementById("depth").value;        
         calculator(lengthFt, widthFt, depthIn, bagSizeCbYd, bagPriceUSD);
     });
+    document.getElementById("editForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from being submitted normally
+        bagSizeCbYd = document.getElementById("editBagSizeCbYd").value;
+        bagPriceUSD = document.getElementById("editBagPriceUSD").value;
+        document.getElementById("results").hidden = true; // hide the results
+        document.getElementById("calculate").value = "Calculate With New Info!";
+        document.getElementById("editForm").hidden = true; // hide the form
+    });
+    document.getElementById("editLink").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the link from navigating to a new page
+        var editForm = document.getElementById("editForm");
+        // If the form is hidden, show it; if it's visible, hide it
+        if (editForm.hidden) {
+            editForm.hidden = false;
+        } else {
+            editForm.hidden = true;
+        }
+    });
 });
 
-const bagSizeCbYd = 0.5;
-const bagPriceUSD = 10.99
+var bagSizeCbYd = 0.5;
+var bagPriceUSD = 10.99
 
 function roundNumber(number) {
     return Math.round(number * 100) / 100;
@@ -54,6 +74,8 @@ function updateUI(isValid, lengthFt, widthFt, depthIn, volumeCbYd, numberBags, t
         // handle invalid input
     }
 }
+
+
 
 function calculator(lengthFt, widthFt, depthIn, bagSizeCbYd, bagPriceUSD) {
     if (validateInput(lengthFt, widthFt, depthIn)) {

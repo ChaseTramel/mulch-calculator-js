@@ -14,14 +14,26 @@
 
 <h2>Input</h2>
 
-<form id="input" target="_self" method="get">
+<form id="inputForm" class="formStyle" target="_self" method="get">
     <label for="length">Length in feet:</label><br>
     <input type="number" id="length" name="length" required min="0"><br>
     <label for="width">Width in feet:</label><br>
     <input type="number" id="width" name="width" required min="0"><br>
     <label for="depth">Depth in inches:</label><br>
-    <input type="number" id="depth" name="depth" required min="0"><br><br>
+    <input type="number" step="any" id="depth" name="depth" required min="0"><br><br>
     <input id="calculate" type="button" value="Calculate!">
+</form>
+
+<br><br> 
+
+<a href="#" id="editLink">Click here to edit bag details.</a>
+
+<form id="editForm" class="formStyle" target="_self" method="get">
+    <label for="editBagSizeCbYd">Bag Size in Cubic Yards:</label><br>
+    <input type="number" step="any" id="editBagSizeCbYd" name="editBagSizeCbYd" value=>
+    <label for="editBagPriceUSD">Bag Price in USD:</label><br>
+    <input type="number" step="any" id="editBagPriceUSD" name="editBagPriceUSD">
+    <input type="submit" value="Update">
 </form>
 
 <section id="results" hidden>
