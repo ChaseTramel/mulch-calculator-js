@@ -1,0 +1,41 @@
+Mulch calculator in vanilla JavaScript
+Chase Tramel - https://github.com/ChaseTramel
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+<h1>Mulch Calculator</h1>
+
+<h2>Input</h2>
+
+<form id="input" target="_self" method="get">
+    <label for="length">Length in feet:</label><br>
+    <input type="number" id="length" name="length" required min="0"><br>
+    <label for="width">Width in feet:</label><br>
+    <input type="number" id="width" name="width" required min="0"><br>
+    <label for="depth">Depth in inches:</label><br>
+    <input type="number" id="depth" name="depth" required min="0"><br><br>
+    <input id="button" type="button" value="Calculate!" onclick="calculator()">
+</form>
+
+<section id="results" hidden>
+<h2>Here are your results</h2>
+
+<p id="outputOne"></p>
+<p id="outputTwo"></p>
+<p id="outputThree"></p>
+<p id="outputFour"></p>
+<p id="outputFive"></p>
+</section>
+
+<p hidden id="bookmarkPrompt">Feel free to bookmark this page! You can come back to these calculations any time!</p>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
